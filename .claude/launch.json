@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "fgvw-dev",
+      "runtimeExecutable": "C:\\Users\\simon\\Documents\\Projects\\FGVW Website Redesign\\dev.cmd",
+      "runtimeArgs": [],
+      "port": 4321
+    }
+  ]
+}

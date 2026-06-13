@@ -1,0 +1,109 @@
+---
+import Base from '../../layouts/Base.astro';
+---
+
+<Base
+  title="The Woods"
+  description="Gledhow Valley Woods — a 57-acre urban woodland in north Leeds. Discover the ecology, history, and conservation projects in this remarkable green space."
+  section="the-woods"
+>
+  <!-- PAGE HERO -->
+  <section class="bg-forest-800 text-white py-16 md:py-24 relative overflow-hidden">
+    <div class="absolute inset-0">
+      <img src="/images/PXL_20240430_170751404.jpg" alt="Tall beech trees lining a path through Gledhow Valley Woods" class="w-full h-full object-cover" />
+      <div class="absolute inset-0 bg-forest-900/70"></div>
+    </div>
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <p class="text-forest-200 font-sans text-sm uppercase tracking-widest mb-3">Gledhow Valley Woods</p>
+      <h1 class="font-heading font-bold text-5xl md:text-7xl text-white mb-6">The Woods</h1>
+      <p class="font-body text-cream-200 text-xl max-w-2xl leading-relaxed">
+        A ribbon of ancient woodland and grassland running 1.5 km through north Leeds — home to 115 species of birds,
+        186 species of plants, 74 species of fungi, and 14 species of butterflies.
+      </p>
+    </div>
+  </section>
+
+  <!-- SECTION NAVIGATION -->
+  <nav class="bg-white border-b border-cream-400 sticky top-16 md:top-20 z-40" aria-label="Woods section navigation">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex overflow-x-auto gap-0 py-0">
+        {[
+          { label: 'About the Woods', href: '/the-woods/about' },
+          { label: 'Projects',        href: '/the-woods/projects' },
+          { label: 'History of the Woods', href: '/the-woods/history' },
+          { label: 'Gledhow Valley Road', href: '/the-woods/gledhow-valley-road' },
+          { label: 'Flora & Fauna',   href: '/the-woods/flora-fauna' },
+        ].map(item => (
+          <a
+            href={item.href}
+            class="shrink-0 px-4 py-3 text-sm font-sans font-medium text-forest-700 border-b-2 border-transparent hover:border-forest-600 hover:text-forest-900 transition-colors whitespace-nowrap"
+          >
+            {item.label}
+          </a>
+        ))}
+      </div>
+    </div>
+  </nav>
+
+  <!-- INTRO CONTENT -->
+  <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+      <div>
+        <h2 class="font-heading font-bold text-forest-900 text-3xl md:text-4xl mb-5">A woodland in the city</h2>
+        <div class="prose prose-lg font-body text-earth-800">
+          <p>
+            Gledhow Valley Woods occupies a glacially formed valley carved by meltwater during the last ice age. Its steep, wooded sides and the stream at its floor — Gledhow Beck — give it a naturally secluded character that makes it a remarkable urban nature reserve in the heart of north Leeds.
+          </p>
+          <p>
+            The 57-acre site is designated as a Conservation Area and is part of the wider Gledhow Valley Conservation Area, designated by Leeds City Council in December 2006. The valley contains significant listed buildings including the Grade II* Gledhow Hall and the Grade II Gipton Spa Bath House (1671).
+          </p>
+          <p>
+            The woods were given to Leeds Corporation in 1944 by the Hon. Hilda Kitson, ensuring their permanent protection as a public open space.
+          </p>
+        </div>
+      </div>
+      <div>
+        <!-- Stats -->
+        <div class="grid grid-cols-2 gap-4 mb-6">
+          {[
+            { value: '57',  unit: 'acres',    label: 'of woodland and grassland' },
+            { value: '115', unit: 'species',  label: 'of birds recorded' },
+            { value: '186', unit: 'species',  label: 'of plants recorded' },
+            { value: '1996', unit: '',        label: 'FGVW founded' },
+          ].map(s => (
+            <div class="bg-white rounded-lg p-4 border border-cream-400 shadow-sm text-center">
+              <div class="font-heading font-bold text-forest-700 text-4xl leading-none">{s.value}</div>
+              {s.unit && <div class="text-sm font-sans text-forest-600 font-medium">{s.unit}</div>}
+              <div class="text-xs font-sans text-earth-500 mt-1">{s.label}</div>
+            </div>
+          ))}
+        </div>
+        <div class="rounded-lg h-48 overflow-hidden">
+          <img src="/images/PXL_20240705_062852566.jpg" alt="The pond at Gledhow Valley Woods with summer meadow flowers" class="w-full h-full object-cover" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SUB-SECTION CARDS -->
+  <section class="bg-bluebell-50 py-14">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="font-heading font-bold text-forest-900 text-3xl mb-8">Explore further</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+        {[
+          { title: 'About the Woods',      href: '/the-woods/about',              desc: 'The valley, its ecology, and what makes Gledhow Valley Woods special.' },
+          { title: 'Projects & Improvements', href: '/the-woods/projects',        desc: 'Current and past conservation and improvement projects.' },
+          { title: 'History of the Woods', href: '/the-woods/history',            desc: 'How the woods came to be — from the glacial age to the present day.' },
+          { title: 'Gledhow Valley Road',  href: '/the-woods/gledhow-valley-road', desc: 'A detailed historical record of the road opened in 1926.' },
+          { title: 'Flora & Fauna',        href: '/the-woods/flora-fauna',        desc: 'The remarkable diversity of wildlife in this urban nature reserve.' },
+        ].map(card => (
+          <a href={card.href} class="group bg-white rounded-lg p-5 border border-cream-400 shadow-sm hover:shadow-md transition-shadow">
+            <h3 class="font-heading font-semibold text-forest-800 text-xl mb-2 group-hover:text-forest-600 transition-colors">{card.title}</h3>
+            <p class="text-earth-600 text-sm font-body leading-relaxed">{card.desc}</p>
+            <span class="mt-3 inline-block text-sm font-sans font-semibold text-forest-700 group-hover:underline">Read more →</span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+</Base>

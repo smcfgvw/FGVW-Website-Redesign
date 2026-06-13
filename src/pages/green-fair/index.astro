@@ -1,0 +1,224 @@
+---
+import Base from '../../layouts/Base.astro';
+import { getCollection } from 'astro:content';
+
+const faqs = await getCollection('green-fair-faqs');
+const sortedFaqs = faqs.sort((a, b) => (a.data.order ?? 99) - (b.data.order ?? 99));
+---
+
+<Base
+  title="Gledhow Valley Green Fair 2026"
+  description="The Gledhow Valley Green Fair — Sunday 12 July 2026, 11am–4pm, Gledhow Valley Road. Free entry. A family-friendly community fair celebrating Gledhow Valley Woods."
+  section="green-fair"
+>
+  <!-- FAIR HERO — distinct palette -->
+  <section class="relative overflow-hidden">
+    <div class="absolute inset-0">
+      <img src="/images/Green Fair.jpeg" alt="Crowds enjoying the Gledhow Valley Green Fair on Gledhow Valley Road" class="w-full h-full object-cover object-center" />
+      <div class="absolute inset-0" style="background: linear-gradient(135deg, #3f6010cc 0%, #6ea016aa 50%, #d4a820aa 100%);"></div>
+    </div>
+
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-28">
+      <div class="inline-block bg-[#d4a820] text-[#1e2e0a] font-sans font-bold text-sm px-4 py-1.5 rounded-full mb-5 uppercase tracking-wide">
+        Sunday 12 July 2026 · 11am–4pm · Free Entry
+      </div>
+      <h1 class="font-heading font-bold text-5xl md:text-7xl text-white mb-5 leading-tight">
+        Gledhow Valley<br />Green Fair
+      </h1>
+      <p class="font-body text-[#d4f57a] text-xl max-w-2xl leading-relaxed mb-8">
+        A free, family-friendly community fair celebrating Gledhow Valley Woods and the people who make this place special. Gledhow Valley Road will be car-free for the day.
+      </p>
+      <div class="flex flex-wrap gap-3">
+        <a
+          href="#volunteer"
+          class="bg-[#d4a820] hover:bg-[#b88f18] text-[#1e2e0a] font-sans font-bold px-7 py-3 rounded transition-colors"
+        >
+          Volunteer with us
+        </a>
+        <a
+          href="#how-to-get-there"
+          class="bg-white/15 hover:bg-white/25 border border-white/30 text-white font-sans font-semibold px-6 py-3 rounded transition-colors"
+        >
+          How to get there
+        </a>
+        <a
+          href="https://www.facebook.com/share/18yRD9YstL/?mibextid=wwXIfr"
+          target="_blank" rel="noopener noreferrer"
+          class="bg-white/15 hover:bg-white/25 border border-white/30 text-white font-sans font-semibold px-6 py-3 rounded transition-colors"
+        >
+          Follow on Facebook
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- DATE / DETAILS BAR -->
+  <div class="bg-[#2d4510] text-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5 grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
+      {[
+        { icon: '📅', label: 'Date', value: 'Sunday 12 July 2026' },
+        { icon: '🕑', label: 'Time', value: '11am – 4pm' },
+        { icon: '📍', label: 'Location', value: 'Gledhow Valley Road, Leeds' },
+        { icon: '🎟️', label: 'Entry', value: 'Free — all welcome' },
+      ].map(item => (
+        <div>
+          <div class="text-2xl mb-1">{item.icon}</div>
+          <div class="text-xs font-sans text-[#b5d85a] uppercase tracking-wide">{item.label}</div>
+          <div class="font-heading font-semibold text-white text-base mt-0.5">{item.value}</div>
+        </div>
+      ))}
+    </div>
+  </div>
+
+  <!-- ABOUT THE FAIR -->
+  <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+      <div class="prose prose-lg font-body text-earth-800 max-w-none">
+        <h2 class="font-heading font-bold text-forest-900 text-3xl">About the Green Fair</h2>
+        <p>
+          The Gledhow Valley Green Fair is an annual community celebration of Gledhow Valley Woods and the wonderful neighbourhood it runs through. The fair brings together local organisations, artists, producers, and residents for a day of activities, entertainment, food, and exploration.
+        </p>
+        <p>
+          Gledhow Valley Road is closed to motor vehicles for the day, creating a safe, relaxed space where the whole community can come together. The fair is free to enter and suitable for all ages — from young families to seasoned woodland-walkers.
+        </p>
+        <p>
+          The fair is organised by a volunteer committee with support from the Friends of Gledhow Valley Woods. All proceeds help support conservation and community activities in the valley.
+        </p>
+
+        <!-- Social links -->
+        <div class="not-prose flex gap-4 mt-6">
+          <a
+            href="https://www.facebook.com/share/18yRD9YstL/?mibextid=wwXIfr"
+            target="_blank" rel="noopener noreferrer"
+            class="flex items-center gap-2 bg-[#1877f2] text-white font-sans font-semibold text-sm px-4 py-2 rounded hover:bg-blue-700 transition-colors"
+          >
+            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+            Facebook
+          </a>
+          <a
+            href="https://www.instagram.com/gledhowvalleygreenfair/"
+            target="_blank" rel="noopener noreferrer"
+            class="flex items-center gap-2 bg-gradient-to-r from-purple-600 to-pink-500 text-white font-sans font-semibold text-sm px-4 py-2 rounded hover:opacity-90 transition-opacity"
+          >
+            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+            Instagram
+          </a>
+        </div>
+      </div>
+
+      <!-- Image placeholder + highlights -->
+      <div class="space-y-4">
+        <div class="rounded-lg h-56 overflow-hidden">
+          <img src="/images/Green Fair.jpeg" alt="Visitors and stalls at the Gledhow Valley Green Fair" class="w-full h-full object-cover" />
+        </div>
+        <div class="grid grid-cols-2 gap-3">
+          {[
+            { icon: '🎪', label: 'Stalls & activities' },
+            { icon: '🎵', label: 'Live music' },
+            { icon: '🌿', label: 'Nature activities' },
+            { icon: '🧃', label: 'Food & drink' },
+          ].map(h => (
+            <div class="bg-fair-50 border border-fair-200 rounded-lg p-3 text-center">
+              <div class="text-2xl mb-1">{h.icon}</div>
+              <div class="text-xs font-sans font-medium text-fair-800">{h.label}</div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW TO GET THERE -->
+  <section id="how-to-get-there" class="bg-[#f0f4d4] border-y border-fair-300 py-12 md:py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="font-heading font-bold text-forest-900 text-3xl md:text-4xl mb-8">How to get there</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div>
+          <p class="font-body text-earth-800 text-lg leading-relaxed mb-5">
+            Gledhow Valley Road will be car-free on the day of the fair. Please travel by bus, bike, or on foot — and help keep the valley car-free!
+          </p>
+          <div class="space-y-4">
+            <div class="bg-white rounded-lg p-5 border border-fair-300">
+              <h3 class="font-heading font-semibold text-forest-800 text-lg mb-2">🚌 Via Roundhay Road <span class="text-earth-500 font-sans text-sm font-normal">(east end)</span></h3>
+              <p class="text-earth-700 font-body text-sm">Routes 12, 13, 13A, 874, X98, X99</p>
+            </div>
+            <div class="bg-white rounded-lg p-5 border border-fair-300">
+              <h3 class="font-heading font-semibold text-forest-800 text-lg mb-2">🚌 Via Harrogate Road <span class="text-earth-500 font-sans text-sm font-normal">(west end)</span></h3>
+              <p class="text-earth-700 font-body text-sm">Routes 2, 3, 3A, 91, 36</p>
+            </div>
+            <div class="bg-white rounded-lg p-5 border border-fair-300">
+              <h3 class="font-heading font-semibold text-forest-800 text-lg mb-2">🚲 By bike</h3>
+              <p class="text-earth-700 font-body text-sm">Cycle parking will be available at the fair. The valley road provides a pleasant approach from several directions.</p>
+            </div>
+          </div>
+        </div>
+        <div>
+          <!-- Map placeholder -->
+          <div class="bg-fair-100 border border-fair-300 rounded-lg h-72 flex items-center justify-center">
+            <div class="text-center px-6">
+              <div class="text-4xl mb-3">🗺️</div>
+              <span class="text-fair-700 font-sans text-sm">Map: Gledhow Valley Road location — map embed placeholder</span>
+              <p class="text-fair-600 font-sans text-xs mt-2">Gledhow Valley Road, Leeds, LS8 / LS17</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- VOLUNTEER -->
+  <section id="volunteer" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16">
+    <div class="bg-[#2d4510] text-white rounded-xl p-8 md:p-12">
+      <h2 class="font-heading font-bold text-3xl md:text-4xl text-[#d4f57a] mb-4">Volunteer with us</h2>
+      <p class="font-body text-[#b5d85a] text-xl leading-relaxed mb-6 max-w-2xl">
+        The Green Fair is made possible entirely by volunteers. We need help with set-up and pack-down, stewarding, and managing activities on the day. If you'd like to get involved, please get in touch.
+      </p>
+      <!-- VOLUNTEER SIGNUP LINK PLACEHOLDER -->
+      <div class="bg-[#3f6010] border border-[#6ea016] rounded-lg p-5 mb-5">
+        <p class="text-[#d4f57a] font-sans text-sm font-semibold mb-2">Volunteer signup — coming soon</p>
+        <p class="text-[#b5d85a] font-sans text-sm">A volunteer signup form will be available here closer to the fair date. In the meantime, <a href="/contact" class="underline hover:text-white">contact us</a> to register your interest.</p>
+      </div>
+      <!-- END VOLUNTEER PLACEHOLDER -->
+    </div>
+  </section>
+
+  <!-- SPONSORS -->
+  <section class="bg-white border-y border-cream-400 py-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="font-heading font-bold text-forest-900 text-3xl mb-4">Sponsors</h2>
+      <p class="text-earth-700 font-body text-lg leading-relaxed mb-8 max-w-2xl">
+        The Gledhow Valley Green Fair is supported by local businesses and community organisations. Interested in sponsoring the 2026 fair? <a href="/contact" class="text-forest-700 underline hover:text-forest-900">Get in touch.</a>
+      </p>
+      <!-- SPONSORS PLACEHOLDER -->
+      <div class="border border-dashed border-cream-500 rounded-lg p-10 text-center text-earth-500 font-sans text-sm">
+        2026 sponsors — to be announced. Contact us to find out about sponsorship opportunities.
+      </div>
+      <!-- END SPONSORS PLACEHOLDER -->
+    </div>
+  </section>
+
+  <!-- FAQs -->
+  <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16">
+    <h2 class="font-heading font-bold text-forest-900 text-3xl md:text-4xl mb-8">Frequently asked questions</h2>
+    {sortedFaqs.length > 0 ? (
+      <div class="space-y-4 max-w-3xl">
+        {sortedFaqs.map(async faq => {
+          const { Content } = await faq.render();
+          return (
+            <details class="bg-white border border-cream-400 rounded-lg overflow-hidden group">
+              <summary class="px-6 py-4 font-heading font-semibold text-forest-800 text-xl cursor-pointer list-none flex items-center justify-between hover:bg-cream-100 transition-colors">
+                {faq.data.question}
+                <span class="text-forest-600 group-open:rotate-180 transition-transform text-lg ml-4">▾</span>
+              </summary>
+              <div class="px-6 pb-5 pt-2 font-body text-earth-700 text-base leading-relaxed border-t border-cream-300">
+                <Content />
+              </div>
+            </details>
+          );
+        })}
+      </div>
+    ) : (
+      <p class="text-earth-600 font-body">FAQs coming soon.</p>
+    )}
+  </section>
+</Base>

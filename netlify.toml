@@ -1,0 +1,19 @@
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+[build.environment]
+  NODE_VERSION = "20"
+
+[[plugins]]
+  package = "@netlify/plugin-sitemap"
+
+[dev]
+  command = "npm run dev"
+  port = 4321
+
+# Decap CMS proxy for local development (optional)
+# [[redirects]]
+#   from = "/api/decap-proxy"
+#   to = "/.netlify/functions/decap-proxy"
+#   status = 200

@@ -1,0 +1,62 @@
+---
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import CookieBanner from '../components/CookieBanner.astro';
+import '../styles/global.css';
+
+interface Props {
+  title: string;
+  description?: string;
+  ogImage?: string;
+  section?: string;
+}
+
+const {
+  title,
+  description = 'Friends of Gledhow Valley Woods — protecting and enhancing Gledhow Valley Woods in north Leeds since 1996.',
+  ogImage = '/images/og-default.png',
+  section = '',
+} = Astro.props;
+
+const siteName = 'Friends of Gledhow Valley Woods';
+const fullTitle = title === siteName ? title : `${title} | ${siteName}`;
+---
+
+<!doctype html>
+<html lang="en-GB">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={description} />
+    <title>{fullTitle}</title>
+
+    <!-- Open Graph -->
+    <meta property="og:title" content={fullTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content={siteName} />
+
+    <!-- Canonical -->
+    <link rel="canonical" href={Astro.url.href} />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Lora:ital,wght@0,400;0,500;0,600;1,400&family=Source+Sans+3:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="bg-cream-100 text-earth-900 font-body antialiased">
+    <Header section={section} />
+    <main>
+      <slot />
+    </main>
+    <Footer />
+    <CookieBanner />
+  </body>
+</html>

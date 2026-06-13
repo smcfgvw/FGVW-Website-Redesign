@@ -1,0 +1,141 @@
+---
+import Base from '../layouts/Base.astro';
+---
+
+<Base
+  title="Contact"
+  description="Contact Friends of Gledhow Valley Woods — we're a volunteer-run charity and aim to respond to all enquiries as soon as we can."
+  section="contact"
+>
+  <section class="bg-forest-800 text-white py-16 md:py-24 relative overflow-hidden">
+    <div class="absolute inset-0 bg-gradient-to-br from-forest-900 to-forest-700 opacity-90"></div>
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h1 class="font-heading font-bold text-5xl md:text-7xl text-white mb-5">Contact</h1>
+      <p class="font-body text-cream-200 text-xl max-w-2xl leading-relaxed">
+        We're a volunteer-run charity. We aim to respond to all enquiries as soon as we can, but please allow a few days.
+      </p>
+    </div>
+  </section>
+
+  <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+
+      <!-- CONTACT FORM -->
+      <div>
+        <h2 class="font-heading font-bold text-forest-900 text-3xl mb-6">Send us a message</h2>
+        <form class="space-y-5" action="#" method="post" novalidate>
+          <div>
+            <label for="contact-name" class="block text-sm font-sans font-semibold text-earth-800 mb-1">Name <span class="text-red-600">*</span></label>
+            <input
+              type="text" id="contact-name" name="name" required
+              class="w-full border border-cream-400 rounded px-4 py-2.5 font-body text-earth-800 focus:outline-none focus:border-forest-500 focus:ring-1 focus:ring-forest-500"
+              placeholder="Your name"
+            />
+          </div>
+          <div>
+            <label for="contact-email" class="block text-sm font-sans font-semibold text-earth-800 mb-1">Email <span class="text-red-600">*</span></label>
+            <input
+              type="email" id="contact-email" name="email" required
+              class="w-full border border-cream-400 rounded px-4 py-2.5 font-body text-earth-800 focus:outline-none focus:border-forest-500 focus:ring-1 focus:ring-forest-500"
+              placeholder="you@example.com"
+            />
+          </div>
+          <div>
+            <label for="contact-subject" class="block text-sm font-sans font-semibold text-earth-800 mb-1">Subject <span class="text-red-600">*</span></label>
+            <input
+              type="text" id="contact-subject" name="subject" required
+              class="w-full border border-cream-400 rounded px-4 py-2.5 font-body text-earth-800 focus:outline-none focus:border-forest-500 focus:ring-1 focus:ring-forest-500"
+              placeholder="What's your message about?"
+            />
+          </div>
+          <div>
+            <label for="contact-message" class="block text-sm font-sans font-semibold text-earth-800 mb-1">Message <span class="text-red-600">*</span></label>
+            <textarea
+              id="contact-message" name="message" rows="6" required
+              class="w-full border border-cream-400 rounded px-4 py-2.5 font-body text-earth-800 focus:outline-none focus:border-forest-500 focus:ring-1 focus:ring-forest-500 resize-y"
+              placeholder="Your message…"
+            ></textarea>
+          </div>
+          <button
+            type="submit"
+            class="bg-forest-700 hover:bg-forest-800 text-white font-sans font-bold py-3 px-8 rounded transition-colors"
+          >
+            Send message
+          </button>
+          <p class="text-xs font-sans text-earth-500 mt-2">
+            Note: this form is not yet connected to a backend. To contact us directly, email <a href="mailto:contact@fgvw.co.uk" class="text-forest-700 underline">contact@fgvw.co.uk</a>.
+          </p>
+        </form>
+      </div>
+
+      <!-- CONTACT INFO -->
+      <div class="space-y-6">
+        <div class="bg-white rounded-lg p-6 border border-cream-400 shadow-sm">
+          <h3 class="font-heading font-semibold text-forest-800 text-xl mb-4">About FGVW</h3>
+          <dl class="space-y-3 text-sm font-sans">
+            <div>
+              <dt class="text-earth-500 uppercase tracking-wide text-xs">Organisation</dt>
+              <dd class="text-earth-800 font-medium mt-0.5">Friends of Gledhow Valley Woods</dd>
+            </div>
+            <div>
+              <dt class="text-earth-500 uppercase tracking-wide text-xs">Registered charity</dt>
+              <dd class="text-earth-800 font-medium mt-0.5">No. 1169599</dd>
+            </div>
+            <div>
+              <dt class="text-earth-500 uppercase tracking-wide text-xs">Location</dt>
+              <dd class="text-earth-800 font-medium mt-0.5">Gledhow Valley Woods, north Leeds, West Yorkshire</dd>
+            </div>
+            <div>
+              <dt class="text-earth-500 uppercase tracking-wide text-xs">Email</dt>
+              <dd class="mt-0.5">
+                <a href="mailto:contact@fgvw.co.uk" class="text-forest-700 hover:underline font-medium">contact@fgvw.co.uk</a>
+              </dd>
+            </div>
+            <div>
+              <dt class="text-earth-500 uppercase tracking-wide text-xs">Registered address</dt>
+              <dd class="text-earth-500 italic mt-0.5">[Registered address to be added]</dd>
+            </div>
+            <div>
+              <dt class="text-earth-500 uppercase tracking-wide text-xs">Charity Commission</dt>
+              <dd class="mt-0.5">
+                <a
+                  href="https://register-of-charities.charitycommission.gov.uk/charity-search"
+                  target="_blank" rel="noopener noreferrer"
+                  class="text-forest-700 hover:underline"
+                >Search register — no. 1169599 →</a>
+              </dd>
+            </div>
+          </dl>
+        </div>
+
+        <div class="bg-white rounded-lg p-6 border border-cream-400 shadow-sm">
+          <h3 class="font-heading font-semibold text-forest-800 text-xl mb-4">Find us online</h3>
+          <div class="space-y-3">
+            <a
+              href="https://www.facebook.com/share/18yRD9YstL/?mibextid=wwXIfr"
+              target="_blank" rel="noopener noreferrer"
+              class="flex items-center gap-3 text-sm font-sans text-earth-700 hover:text-forest-700 transition-colors"
+            >
+              <svg class="w-5 h-5 text-blue-600" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+              Facebook — Friends of Gledhow Valley Woods
+            </a>
+            <a
+              href="https://twitter.com/gledhowwoods"
+              target="_blank" rel="noopener noreferrer"
+              class="flex items-center gap-3 text-sm font-sans text-earth-700 hover:text-forest-700 transition-colors"
+            >
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+              Twitter / X — @gledhowwoods
+            </a>
+          </div>
+        </div>
+
+        <div class="bg-cream-200 rounded-lg p-5 border border-cream-400">
+          <p class="font-body text-earth-700 text-sm leading-relaxed">
+            <strong class="font-semibold text-earth-900">Please note:</strong> FGVW is an entirely volunteer-run charity. We will do our best to reply to your message promptly, but please allow several days for a response, especially around events or work parties.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+</Base>

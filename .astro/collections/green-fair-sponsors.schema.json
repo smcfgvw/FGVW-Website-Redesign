@@ -1,0 +1,37 @@
+{
+  "$ref": "#/definitions/green-fair-sponsors",
+  "definitions": {
+    "green-fair-sponsors": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "logo": {
+          "type": "string"
+        },
+        "website": {
+          "type": "string",
+          "format": "uri"
+        },
+        "tier": {
+          "type": "string",
+          "enum": [
+            "gold",
+            "silver",
+            "community"
+          ]
+        },
+        "$schema": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "tier"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "$schema": "http://json-schema.org/draft-07/schema#"
+}

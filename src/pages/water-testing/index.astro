@@ -1,0 +1,221 @@
+---
+import Base from '../../layouts/Base.astro';
+import { getCollection } from 'astro:content';
+
+const reports = await getCollection('water-reports');
+const sortedReports = reports.sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+
+function formatDate(d: Date) {
+  return d.toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' });
+}
+---
+
+<Base
+  title="Water Testing"
+  description="FGVW's citizen science water quality monitoring programme for Gledhow Beck — results, methodology, and related resources."
+  section="water-testing"
+>
+  <!-- HERO -->
+  <section class="bg-forest-900 text-white py-16 md:py-24 relative overflow-hidden">
+    <div class="absolute inset-0">
+      <img src="/images/PXL_20240330_075852233.MP.jpg" alt="View of the pond from the woodland path at Gledhow Valley Woods" class="w-full h-full object-cover" />
+      <div class="absolute inset-0 bg-forest-900/75"></div>
+    </div>
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <p class="text-blue-200 font-sans text-sm uppercase tracking-widest mb-3">Citizen Science</p>
+      <h1 class="font-heading font-bold text-5xl md:text-7xl text-white mb-6">Water Testing</h1>
+      <p class="font-body text-cream-200 text-xl max-w-2xl leading-relaxed">
+        Since September 2023, FGVW volunteers have been monitoring the water quality of Gledhow Beck — the stream that runs through the heart of the valley — as part of our citizen science programme.
+      </p>
+    </div>
+  </section>
+
+  <!-- STATS STRIP -->
+  <section class="bg-white border-b border-cream-400">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+        {[
+          { value: '5,156+', label: 'Data points recorded' },
+          { value: '14',     label: 'Monitoring stations' },
+          { value: '23',     label: 'Parameters measured' },
+          { value: 'Sep 2023', label: 'Programme started' },
+        ].map(s => (
+          <div>
+            <div class="font-heading font-bold text-forest-700 text-4xl leading-none">{s.value}</div>
+            <div class="text-sm font-sans text-earth-600 mt-1">{s.label}</div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- INTRO -->
+  <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+      <div class="prose prose-lg font-body text-earth-800 max-w-none">
+        <h2 class="font-heading font-bold text-forest-900 text-3xl">Why water quality matters</h2>
+        <p>
+          Gledhow Beck is an urban watercourse — it flows through a catchment of residential streets, roads, parks, and gardens before entering the ancient woodland of Gledhow Valley. Like many urban becks in Leeds, it is vulnerable to pollution from road runoff, misconnected drains, and Combined Sewer Overflows (CSOs) — points where the sewer network can discharge into the watercourse during heavy rainfall.
+        </p>
+        <p>
+          Good water quality in Gledhow Beck is vital for the health of the whole woodland ecosystem. The beck supports invertebrates that form the base of the food chain for fish, birds such as the kingfisher, and amphibians. Pollution in the water affects all of these species.
+        </p>
+
+        <h2 class="font-heading font-bold text-forest-900 text-3xl mt-8">How we test</h2>
+        <p>
+          Our trained volunteers carry out regular water quality testing at 14 fixed sampling points along Gledhow Beck, with a particular focus on sites downstream of Combined Sewer Overflows. We record 23 parameters at each station, including:
+        </p>
+        <ul>
+          <li><strong>Phosphate-phosphorus &amp; nitrate-nitrogen</strong> — indicators of sewage and diffuse pollution</li>
+          <li><strong>Ammonia</strong> — a marker of sewage contamination</li>
+          <li><strong>pH, conductivity &amp; alkalinity</strong> — overall chemical condition of the water</li>
+          <li><strong>Dissolved oxygen</strong> — essential for aquatic life</li>
+          <li><strong>Clarity, colour &amp; turbidity</strong> — visual water quality indicators</li>
+          <li><strong>Water temperature &amp; air temperature</strong> — environmental context</li>
+          <li><strong>Water flow &amp; level</strong> — hydrological conditions</li>
+          <li><strong>Algae, odour &amp; pollution sources</strong> — observational indicators</li>
+        </ul>
+        <p>
+          Results are recorded on the Water Rangers platform and reported to Leeds City Council and our partners. Significant findings are reported to the Environment Agency.
+        </p>
+
+        <h2 class="font-heading font-bold text-forest-900 text-3xl mt-8">Monitoring stations</h2>
+        <p>Our 14 stations include sites above and below key CSO outfalls, allowing us to identify the impact of sewer overflow events on the beck's water quality:</p>
+        <ul>
+          <li>Confluence of both water sources (below Harrogate Road and Allerton Grange CSOs)</li>
+          <li>Allerton Grange CSO — above and below</li>
+          <li>Harrogate Road CSO — below</li>
+          <li>Allerton Park CSO — above and below</li>
+          <li>Gledhow Lane CSO — below</li>
+          <li>Additional stations along the length of the beck</li>
+        </ul>
+      </div>
+
+      <div class="space-y-5">
+        <!-- Water Rangers data link -->
+        <div class="bg-blue-900 text-white rounded-lg p-6">
+          <h3 class="font-heading font-semibold text-xl mb-2 text-blue-100">View all our data</h3>
+          <p class="text-blue-200 font-body text-sm leading-relaxed mb-4">
+            All readings from our monitoring programme — over 5,000 data points from 14 stations — are publicly available on the Water Rangers platform. You can browse results by station, parameter, and date going back to September 2023.
+          </p>
+          <a
+            href="https://data.waterrangers.com/organizations/friends-of-gledhow-valley-woods"
+            target="_blank" rel="noopener noreferrer"
+            class="inline-block bg-blue-700 hover:bg-blue-600 text-white font-sans font-semibold text-sm px-4 py-2 rounded transition-colors"
+          >
+            FGVW on Water Rangers →
+          </a>
+        </div>
+
+        <!-- Partner links -->
+        <div class="bg-white rounded-lg p-6 border border-cream-400 shadow-sm">
+          <h3 class="font-heading font-semibold text-forest-800 text-xl mb-3">Related organisations</h3>
+          <ul class="space-y-2 text-sm font-sans">
+            <li>
+              <a href="https://waterrangers.com" target="_blank" rel="noopener noreferrer" class="text-forest-700 hover:underline font-medium">
+                Water Rangers →
+              </a>
+              <p class="text-earth-600 mt-0.5">The citizen science platform we use to record and publish our water quality data.</p>
+            </li>
+            <li class="pt-2">
+              <a href="https://www.forp.org" target="_blank" rel="noopener noreferrer" class="text-forest-700 hover:underline font-medium">
+                Friends of Roundhay Park (FoRP) →
+              </a>
+              <p class="text-earth-600 mt-0.5">Water monitoring project for Roundhay Park's lakes and watercourses.</p>
+            </li>
+            <li class="pt-2">
+              <a href="https://www.reap.org.uk" target="_blank" rel="noopener noreferrer" class="text-forest-700 hover:underline font-medium">
+                REAP →
+              </a>
+              <p class="text-earth-600 mt-0.5">A partner organisation in local water quality monitoring and environmental accountability.</p>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Annual reports -->
+        <div class="bg-cream-100 rounded-lg p-5 border border-cream-400">
+          <h3 class="font-heading font-semibold text-forest-800 text-lg mb-3">Annual reports</h3>
+          <ul class="space-y-2">
+            <li class="flex items-center justify-between gap-3">
+              <span class="text-sm font-sans text-earth-800">Water Quality Report 2025</span>
+              <a
+                href="/documents/gledhow-beck-water-quality-report-2025.pdf"
+                download
+                class="shrink-0 bg-forest-700 hover:bg-forest-800 text-white font-sans font-semibold text-xs px-3 py-1.5 rounded transition-colors"
+              >
+                Download PDF
+              </a>
+            </li>
+          </ul>
+          <p class="text-xs font-sans text-earth-500 mt-3">Further reports will be added here as published.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- REPORTS -->
+  <section class="bg-white border-y border-cream-400 py-12 md:py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-baseline justify-between mb-8">
+        <h2 class="font-heading font-bold text-forest-900 text-3xl md:text-4xl">Latest Reports</h2>
+        <a
+          href="https://data.waterrangers.com/organizations/friends-of-gledhow-valley-woods"
+          target="_blank" rel="noopener noreferrer"
+          class="text-sm font-sans font-semibold text-forest-700 hover:underline"
+        >All readings on Water Rangers →</a>
+      </div>
+      {sortedReports.length > 0 ? (
+        <div class="space-y-4">
+          {sortedReports.map(report => (
+            <article class="bg-cream-100 rounded-lg p-5 border border-cream-400 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+              <div>
+                <time class="text-xs font-sans text-earth-500 uppercase tracking-wide" datetime={report.data.date.toISOString()}>
+                  {formatDate(report.data.date)}
+                </time>
+                <h3 class="font-heading font-semibold text-forest-800 text-xl mt-0.5">{report.data.title}</h3>
+                <p class="text-earth-700 font-body text-sm mt-1 leading-relaxed">{report.data.summary}</p>
+              </div>
+              {report.data.reportUrl && (
+                <a
+                  href={report.data.reportUrl}
+                  class="shrink-0 bg-forest-700 hover:bg-forest-800 text-white font-sans font-semibold text-sm px-4 py-2 rounded transition-colors"
+                >
+                  View report →
+                </a>
+              )}
+            </article>
+          ))}
+        </div>
+      ) : (
+        <div class="space-y-4">
+          <p class="text-earth-600 font-body">
+            Formal reports are published here as they become available. In the meantime, you can browse all individual readings and station data on the
+            <a href="https://data.waterrangers.com/organizations/friends-of-gledhow-valley-woods" target="_blank" rel="noopener noreferrer" class="text-forest-700 underline">Water Rangers platform</a>.
+          </p>
+        </div>
+      )}
+    </div>
+  </section>
+
+  <!-- GET INVOLVED -->
+  <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <div class="bg-forest-800 rounded-lg p-8 text-white">
+      <h2 class="font-heading font-bold text-3xl text-cream-100 mb-3">Get involved in water monitoring</h2>
+      <p class="font-body text-cream-200 text-lg leading-relaxed mb-6 max-w-2xl">
+        Our water monitoring volunteers are trained by experienced practitioners. If you're interested in citizen science and learning how to assess water quality — or if you'd like to know more about what our data reveals about the health of Gledhow Beck — we'd love to hear from you.
+      </p>
+      <div class="flex flex-wrap gap-3">
+        <a href="/contact" class="inline-block bg-white text-forest-900 hover:bg-cream-200 font-sans font-bold px-6 py-3 rounded transition-colors">
+          Get in touch
+        </a>
+        <a
+          href="https://data.waterrangers.com/organizations/friends-of-gledhow-valley-woods"
+          target="_blank" rel="noopener noreferrer"
+          class="inline-block bg-forest-600 hover:bg-forest-500 text-white font-sans font-bold px-6 py-3 rounded transition-colors"
+        >
+          View our data on Water Rangers →
+        </a>
+      </div>
+    </div>
+  </section>
+</Base>

@@ -1,0 +1,84 @@
+---
+import Base from '../../layouts/Base.astro';
+---
+
+<Base
+  title="Flora & Fauna — The Woods"
+  description="The remarkable wildlife of Gledhow Valley Woods — birds, plants, fungi, butterflies and more in this urban nature reserve."
+  section="the-woods"
+>
+  <section class="bg-forest-800 text-white py-12 relative overflow-hidden">
+    <div class="absolute inset-0 bg-gradient-to-br from-forest-900 to-forest-700 opacity-90"></div>
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <nav class="text-forest-200 font-sans text-sm mb-4" aria-label="Breadcrumb">
+        <a href="/" class="hover:text-white">Home</a> / <a href="/the-woods" class="hover:text-white">The Woods</a> / <span>Flora &amp; Fauna</span>
+      </nav>
+      <h1 class="font-heading font-bold text-4xl md:text-5xl text-white">Flora &amp; Fauna</h1>
+      <p class="font-body text-cream-200 text-xl mt-4 max-w-2xl">
+        Gledhow Valley Woods is one of north Leeds's most biodiverse urban sites.
+      </p>
+    </div>
+  </section>
+
+  <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16">
+
+    <!-- Stats strip -->
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12">
+      {[
+        { value: '115', label: 'Species of birds' },
+        { value: '186', label: 'Species of plants' },
+        { value: '74',  label: 'Species of fungi' },
+        { value: '14',  label: 'Species of butterflies' },
+      ].map(s => (
+        <div class="bg-white rounded-lg p-5 border border-cream-400 shadow-sm text-center">
+          <div class="font-heading font-bold text-forest-700 text-5xl leading-none mb-1">{s.value}</div>
+          <div class="text-sm font-sans text-earth-600">{s.label}</div>
+        </div>
+      ))}
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-10">
+      <div class="prose prose-lg font-body text-earth-800 max-w-none">
+        <h2 class="font-heading font-bold text-forest-900 text-3xl">Birds</h2>
+        <p>
+          The woodland's variety of habitats — from the stream-side vegetation of Gledhow Beck to the canopy of the ancient woodland and the open glades — supports a rich bird community. Highlights include kingfisher along the beck, tawny owl, sparrowhawk, treecreeper, nuthatch, and numerous woodland warblers.
+        </p>
+
+        <h2 class="font-heading font-bold text-forest-900 text-3xl mt-6">Plants</h2>
+        <p>
+          The woodland flora includes several ancient woodland indicator species — plants that suggest the long continuity of woodland cover on the site. Spring brings carpets of bluebells, ramsons (wild garlic), and wood anemone. Ferns and mosses line the beck margins throughout the year.
+        </p>
+
+        <h2 class="font-heading font-bold text-forest-900 text-3xl mt-6">Fungi</h2>
+        <p>
+          Autumn is a wonderful time to visit for fungi. The woods support 74 recorded species, including some that are associated with old woodland and veteran trees. Fungi play a vital ecological role in breaking down dead wood and cycling nutrients through the woodland ecosystem.
+        </p>
+      </div>
+
+      <div>
+        <div class="bg-forest-50 border border-forest-200 rounded-lg p-6 mb-6">
+          <h3 class="font-heading font-semibold text-forest-800 text-xl mb-3">Wildlife Spotting</h3>
+          <p class="text-earth-700 font-body text-sm leading-relaxed mb-4">
+            Gledhow Valley Woods is an excellent site for wildlife watching throughout the year. Whether you're an experienced naturalist or just curious about what lives in your local woodland, there's always something to discover.
+          </p>
+          <ul class="text-sm font-body text-earth-700 space-y-2">
+            <li>🐦 <strong>Kingfisher</strong> — look for flashes of electric blue along Gledhow Beck</li>
+            <li>🦉 <strong>Tawny owl</strong> — listen for their calls on autumn and winter evenings</li>
+            <li>🦊 <strong>Fox</strong> — often seen at dawn and dusk</li>
+            <li>🌸 <strong>Bluebell</strong> — spectacular in April and May</li>
+            <li>🍄 <strong>Fungi</strong> — best in September–November on fallen logs and leaf litter</li>
+          </ul>
+        </div>
+
+        <!-- Image placeholder -->
+        <div class="bg-forest-100 border border-forest-200 rounded-lg h-48 flex items-center justify-center">
+          <span class="text-forest-400 font-sans text-sm text-center px-4">Image: bluebell woodland in spring — photography placeholder</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="mt-10 pt-8 border-t border-cream-400">
+      <a href="/the-woods" class="font-sans text-sm font-semibold text-forest-700 hover:underline">← Back to The Woods</a>
+    </div>
+  </section>
+</Base>

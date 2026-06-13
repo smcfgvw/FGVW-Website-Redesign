@@ -1,0 +1,45 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    font-family: 'Lora', Georgia, serif;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-white text-earth-900 antialiased;
+    font-size: 17px;
+    line-height: 1.7;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    line-height: 1.15;
+  }
+
+  /* Prose overrides for Tailwind typography */
+  .prose h1, .prose h2, .prose h3, .prose h4 {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+  }
+
+  /* Details/summary styling for FAQ accordion */
+  details > summary::-webkit-details-marker { display: none; }
+  details > summary { list-style: none; }
+}
+
+@layer components {
+  /* Skip to content for accessibility */
+  .skip-link {
+    @apply sr-only focus:not-sr-only focus:fixed focus:top-0 focus:left-0 focus:z-[100] focus:bg-forest-800 focus:text-white focus:px-4 focus:py-2 focus:font-sans;
+  }
+
+  /* Woodland image placeholder blocks */
+  .img-placeholder {
+    @apply bg-forest-100 border border-forest-200 rounded-lg flex items-center justify-center;
+  }
+  .img-placeholder span {
+    @apply text-forest-400 font-sans text-sm text-center px-4;
+  }
+}

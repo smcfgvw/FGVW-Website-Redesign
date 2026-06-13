@@ -1,0 +1,57 @@
+---
+import Base from '../../layouts/Base.astro';
+import { getCollection } from 'astro:content';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('news');
+  return posts.map(post => ({ params: { slug: post.slug }, props: { post } }));
+}
+
+const { post } = Astro.props;
+const { Content } = await post.render();
+
+const categoryLabels: Record<string, string> = {
+  'projects':      'Projects',
+  'water-testing': 'Water Testing',
+  'green-fair':    'Green Fair',
+  'general':       'General',
+};
+
+function formatDate(d: Date) {
+  return d.toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' });
+}
+---
+
+<Base
+  title={post.data.title}
+  description={post.data.excerpt ?? `FGVW news: ${post.data.title}`}
+  section="news"
+>
+  <section class="bg-forest-800 text-white py-12 relative overflow-hidden">
+    <div class="absolute inset-0 bg-gradient-to-br from-forest-900 to-forest-700 opacity-90"></div>
+    <div class="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <nav class="text-forest-200 font-sans text-sm mb-4" aria-label="Breadcrumb">
+        <a href="/" class="hover:text-white">Home</a> / <a href="/news" class="hover:text-white">News</a> / <span>{post.data.title}</span>
+      </nav>
+      <div class="flex items-center gap-3 mb-4">
+        <span class="bg-forest-600 text-white text-xs font-sans font-semibold px-3 py-1 rounded-full">
+          {categoryLabels[post.data.category]}
+        </span>
+        <time class="text-forest-200 font-sans text-sm" datetime={post.data.date.toISOString()}>
+          {formatDate(post.data.date)}
+        </time>
+        {post.data.author && <span class="text-forest-200 font-sans text-sm">by {post.data.author}</span>}
+      </div>
+      <h1 class="font-heading font-bold text-4xl md:text-5xl text-white leading-tight">{post.data.title}</h1>
+    </div>
+  </section>
+
+  <article class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16">
+    <div class="prose prose-lg font-body text-earth-800 max-w-none">
+      <Content />
+    </div>
+    <div class="mt-10 pt-8 border-t border-cream-400">
+      <a href="/news" class="font-sans text-sm font-semibold text-forest-700 hover:underline">← All news</a>
+    </div>
+  </article>
+</Base>

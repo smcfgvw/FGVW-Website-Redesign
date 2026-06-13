@@ -1,0 +1,120 @@
+backend:
+  name: git-gateway
+  branch: main
+
+# Media files will be stored in the repo under public/images
+media_folder: "public/images/uploads"
+public_folder: "/images/uploads"
+
+# Netlify Identity
+local_backend: false
+
+collections:
+
+  # NEWS POSTS
+  - name: "news"
+    label: "News"
+    folder: "src/content/news"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Title",          name: "title",         widget: "string" }
+      - { label: "Date",           name: "date",          widget: "datetime", format: "YYYY-MM-DD", date_format: "DD/MM/YYYY", time_format: false }
+      - { label: "Author",         name: "author",        widget: "string",   required: false }
+      - label: "Category"
+        name: "category"
+        widget: "select"
+        options:
+          - { label: "Projects",      value: "projects" }
+          - { label: "Water Testing", value: "water-testing" }
+          - { label: "Green Fair",    value: "green-fair" }
+          - { label: "General",       value: "general" }
+      - { label: "Excerpt",        name: "excerpt",       widget: "text",     required: false }
+      - { label: "Featured Image", name: "featuredImage", widget: "image",    required: false }
+      - { label: "Body",           name: "body",          widget: "markdown" }
+
+  # EVENTS
+  - name: "events"
+    label: "Events"
+    folder: "src/content/events"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Title",        name: "title",       widget: "string" }
+      - { label: "Date",         name: "date",        widget: "datetime", format: "YYYY-MM-DD", date_format: "DD/MM/YYYY", time_format: false }
+      - { label: "Time",         name: "time",        widget: "string",   required: false, hint: "e.g. 10:00–13:00" }
+      - { label: "Location",     name: "location",    widget: "string" }
+      - { label: "Description",  name: "description", widget: "text" }
+      - { label: "Booking Link", name: "bookingLink", widget: "string",   required: false }
+      - label: "Category"
+        name: "category"
+        widget: "select"
+        options:
+          - { label: "Work Party",  value: "work-party" }
+          - { label: "Walk",        value: "walk" }
+          - { label: "Meeting",     value: "meeting" }
+          - { label: "Green Fair",  value: "green-fair" }
+          - { label: "General",     value: "general" }
+      - { label: "Body",         name: "body",        widget: "markdown", required: false }
+
+  # WATER TESTING REPORTS
+  - name: "water-reports"
+    label: "Water Testing Reports"
+    folder: "src/content/water-reports"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Title",       name: "title",     widget: "string" }
+      - { label: "Date",        name: "date",      widget: "datetime", format: "YYYY-MM-DD", date_format: "DD/MM/YYYY", time_format: false }
+      - { label: "Summary",     name: "summary",   widget: "text" }
+      - { label: "Report URL",  name: "reportUrl", widget: "string",   required: false, hint: "Link to PDF or external report" }
+      - { label: "Body",        name: "body",      widget: "markdown",  required: false }
+
+  # PROJECTS
+  - name: "projects"
+    label: "Projects"
+    folder: "src/content/projects"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Title",       name: "title",       widget: "string" }
+      - label: "Status"
+        name: "status"
+        widget: "select"
+        options:
+          - { label: "Active",    value: "active" }
+          - { label: "Completed", value: "completed" }
+      - { label: "Description", name: "description", widget: "text" }
+      - { label: "Images",      name: "images",      widget: "list",     required: false, field: { label: "Image", name: "image", widget: "image" } }
+      - { label: "Body",        name: "body",        widget: "markdown" }
+
+  # GREEN FAIR FAQs
+  - name: "green-fair-faqs"
+    label: "Green Fair FAQs"
+    folder: "src/content/green-fair-faqs"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Question", name: "question", widget: "string" }
+      - { label: "Order",    name: "order",    widget: "number",   required: false, value_type: "int" }
+      - { label: "Answer",   name: "body",     widget: "markdown" }
+
+  # GREEN FAIR SPONSORS
+  - name: "green-fair-sponsors"
+    label: "Green Fair Sponsors"
+    folder: "src/content/green-fair-sponsors"
+    create: true
+    slug: "{{slug}}"
+    extension: "json"
+    format: "json"
+    fields:
+      - { label: "Name",    name: "name",    widget: "string" }
+      - { label: "Logo",    name: "logo",    widget: "image",  required: false }
+      - { label: "Website", name: "website", widget: "string", required: false }
+      - label: "Tier"
+        name: "tier"
+        widget: "select"
+        options:
+          - { label: "Gold",      value: "gold" }
+          - { label: "Silver",    value: "silver" }
+          - { label: "Community", value: "community" }
