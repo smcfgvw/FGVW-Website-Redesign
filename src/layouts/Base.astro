@@ -50,9 +50,24 @@ const fullTitle = title === siteName ? title : `${title} | ${siteName}`;
       href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Lora:ital,wght@0,400;0,500;0,600;1,400&family=Source+Sans+3:wght@300;400;500;600;700&display=swap"
       rel="stylesheet"
     />
+
+    <!-- MailerLite Universal -->
+    <script is:inline>
+      (function(w,d,e,u,f,l,n){w[f]=w[f]||function(){(w[f].q=w[f].q||[])
+      .push(arguments);},l=d.createElement(e),l.async=1,l.src=u,
+      n=d.getElementsByTagName(e)[0],n.parentNode.insertBefore(l,n);})
+      (window,document,'script','https://assets.mailerlite.com/js/universal.js','ml');
+      ml('account', '1357728');
+    </script>
+    <!-- End MailerLite Universal -->
   </head>
   <body class="bg-cream-100 text-earth-900 font-body antialiased">
     <Header section={section} />
+    <div class="bg-earth-600 text-white text-center px-4 py-3">
+      <p class="font-sans font-bold text-base md:text-lg">
+        🚧 This website is a work in progress and will continue to be updated over time — constructive feedback is always welcome.
+      </p>
+    </div>
     <main>
       <slot />
     </main>
