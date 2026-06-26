@@ -16,6 +16,7 @@ const sortedFaqs = faqs.sort((a, b) => (a.data.order ?? 99) - (b.data.order ?? 9
     <div class="absolute inset-0">
       <img src="/images/Green Fair.jpeg" alt="Crowds enjoying the Gledhow Valley Green Fair on Gledhow Valley Road" class="w-full h-full object-cover object-center" />
       <div class="absolute inset-0" style="background: linear-gradient(135deg, #3f6010cc 0%, #6ea016aa 50%, #d4a820aa 100%);"></div>
+      <span class="absolute bottom-2 right-3 text-[10px] text-white/70 font-sans z-10">© Hazel Gregory</span>
     </div>
 
     <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-28">
@@ -124,8 +125,9 @@ const sortedFaqs = faqs.sort((a, b) => (a.data.order ?? 99) - (b.data.order ?? 9
 
       <!-- Image placeholder + highlights -->
       <div class="space-y-4">
-        <div class="rounded-lg h-56 overflow-hidden">
+        <div class="rounded-lg h-56 overflow-hidden relative">
           <img src="/images/Green Fair.jpeg" alt="Visitors and stalls at the Gledhow Valley Green Fair" class="w-full h-full object-cover" />
+          <span class="absolute bottom-1 right-2 text-[10px] text-white/70 font-sans">© Hazel Gregory</span>
         </div>
         <div class="grid grid-cols-2 gap-3">
           {[

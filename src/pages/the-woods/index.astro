@@ -12,6 +12,7 @@ import Base from '../../layouts/Base.astro';
     <div class="absolute inset-0">
       <img src="/images/PXL_20240430_170751404.jpg" alt="Tall beech trees lining a path through Gledhow Valley Woods" class="w-full h-full object-cover" />
       <div class="absolute inset-0 bg-forest-900/70"></div>
+      <span class="absolute bottom-2 right-3 text-[10px] text-white/70 font-sans z-10">© Simon Conyers</span>
     </div>
     <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <p class="text-forest-200 font-sans text-sm uppercase tracking-widest mb-3">Gledhow Valley Woods</p>
@@ -33,6 +34,7 @@ import Base from '../../layouts/Base.astro';
           { label: 'History of the Woods', href: '/the-woods/history' },
           { label: 'Gledhow Valley Road', href: '/the-woods/gledhow-valley-road' },
           { label: 'Flora & Fauna',   href: '/the-woods/flora-fauna' },
+          { label: 'Beck Pasture',    href: '/the-woods/beck-pasture' },
         ].map(item => (
           <a
             href={item.href}
@@ -78,8 +80,9 @@ import Base from '../../layouts/Base.astro';
             </div>
           ))}
         </div>
-        <div class="rounded-lg h-48 overflow-hidden">
+        <div class="rounded-lg h-48 overflow-hidden relative">
           <img src="/images/PXL_20240705_062852566.jpg" alt="The pond at Gledhow Valley Woods with summer meadow flowers" class="w-full h-full object-cover" />
+          <span class="absolute bottom-1 right-2 text-[10px] text-white/70 font-sans">© Simon Conyers</span>
         </div>
       </div>
     </div>
@@ -96,6 +99,7 @@ import Base from '../../layouts/Base.astro';
           { title: 'History of the Woods', href: '/the-woods/history',            desc: 'How the woods came to be — from the glacial age to the present day.' },
           { title: 'Gledhow Valley Road',  href: '/the-woods/gledhow-valley-road', desc: 'A detailed historical record of the road opened in 1926.' },
           { title: 'Flora & Fauna',        href: '/the-woods/flora-fauna',        desc: 'The remarkable diversity of wildlife in this urban nature reserve.' },
+          { title: 'Beck Pasture',         href: '/the-woods/beck-pasture',       desc: 'A tranquil meadow alongside Gledhow Beck within the valley.' },
         ].map(card => (
           <a href={card.href} class="group bg-white rounded-lg p-5 border border-cream-400 shadow-sm hover:shadow-md transition-shadow">
             <h3 class="font-heading font-semibold text-forest-800 text-xl mb-2 group-hover:text-forest-600 transition-colors">{card.title}</h3>

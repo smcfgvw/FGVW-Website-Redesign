@@ -212,6 +212,13 @@ declare module 'astro:content' {
   collection: "news";
   data: InferEntrySchema<"news">
 } & { render(): Render[".md"] };
+"water-pollution-petition.md": {
+	id: "water-pollution-petition.md";
+  slug: "water-pollution-petition";
+  body: string;
+  collection: "news";
+  data: InferEntrySchema<"news">
+} & { render(): Render[".md"] };
 "zebra-crossing-2023.md": {
 	id: "zebra-crossing-2023.md";
   slug: "zebra-crossing-2023";

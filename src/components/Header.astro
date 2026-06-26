@@ -11,8 +11,13 @@ const nav = [
   { label: 'About Us',      href: '/about-us',       prominent: false },
   { label: 'News',          href: '/news',           prominent: false },
   { label: 'Events',        href: '/events',         prominent: false },
-  { label: 'Join Us',       href: '/join-us',        prominent: false },
   { label: 'Contact',       href: '/contact',        prominent: false },
+];
+
+const getInvolved = [
+  { label: 'Volunteering',      href: '/get-involved/volunteering' },
+  { label: 'Becoming a Member', href: '/get-involved/membership' },
+  { label: 'Donating',          href: '/get-involved/donating' },
 ];
 ---
 
@@ -50,6 +55,35 @@ const nav = [
             {item.label}
           </a>
         ))}
+
+        <!-- Get Involved — prominent CTA with dropdown -->
+        <div id="get-involved-wrap" class="relative ml-1 lg:ml-3">
+          <button
+            id="get-involved-toggle"
+            aria-haspopup="true"
+            aria-expanded="false"
+            class="flex items-center gap-1.5 bg-bluebell-700 hover:bg-bluebell-800 text-white font-sans font-bold text-sm px-5 py-2 rounded-full shadow-sm transition-colors whitespace-nowrap"
+          >
+            Get Involved
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7" />
+            </svg>
+          </button>
+          <div
+            id="get-involved-menu"
+            class="hidden absolute right-0 mt-2 w-56 bg-white rounded-lg shadow-lg border border-cream-300 py-2 z-50"
+          >
+            <a href="/get-involved" class="block px-4 py-2 text-sm font-sans font-semibold text-bluebell-900 hover:bg-bluebell-50">
+              Overview
+            </a>
+            <div class="my-1 border-t border-cream-200"></div>
+            {getInvolved.map(item => (
+              <a href={item.href} class="block px-4 py-2 text-sm font-sans text-bluebell-700 hover:bg-bluebell-50 hover:text-bluebell-900">
+                {item.label}
+              </a>
+            ))}
+          </div>
+        </div>
       </nav>
 
       <!-- Mobile hamburger -->
@@ -88,6 +122,19 @@ const nav = [
           {item.label}
         </a>
       ))}
+
+      <!-- Get Involved — prominent CTA, far end of mobile menu too -->
+      <div class="mt-2 pt-2 border-t border-cream-200">
+        <p class="px-4 pb-1 text-xs font-sans font-bold uppercase tracking-wide text-bluebell-700">Get Involved</p>
+        <a href="/get-involved" class="block px-4 py-2.5 rounded text-sm font-sans font-bold bg-bluebell-700 text-white hover:bg-bluebell-800 transition-colors">
+          Overview
+        </a>
+        {getInvolved.map(item => (
+          <a href={item.href} class="block px-4 py-2.5 rounded text-sm font-sans font-medium text-bluebell-800 hover:bg-bluebell-50">
+            {item.label}
+          </a>
+        ))}
+      </div>
     </nav>
   </div>
 </header>
@@ -103,5 +150,29 @@ const nav = [
     toggle.setAttribute('aria-expanded', String(open));
     iconOpen?.classList.toggle('hidden', open);
     iconClose?.classList.toggle('hidden', !open);
+  });
+
+  const giToggle = document.getElementById('get-involved-toggle');
+  const giMenu   = document.getElementById('get-involved-menu');
+  const giWrap   = document.getElementById('get-involved-wrap');
+
+  giToggle?.addEventListener('click', (e) => {
+    e.stopPropagation();
+    const isHidden = giMenu?.classList.toggle('hidden') === false;
+    giToggle.setAttribute('aria-expanded', String(isHidden));
+  });
+
+  document.addEventListener('click', (e) => {
+    if (giWrap && !giWrap.contains(e.target)) {
+      giMenu?.classList.add('hidden');
+      giToggle?.setAttribute('aria-expanded', 'false');
+    }
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      giMenu?.classList.add('hidden');
+      giToggle?.setAttribute('aria-expanded', 'false');
+    }
   });
 </script>

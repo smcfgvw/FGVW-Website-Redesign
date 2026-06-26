@@ -1,0 +1,30 @@
+---
+import Base from '../layouts/Base.astro';
+---
+
+<Base
+  title="Our Former Website (Archive)"
+  description="An archived copy of the original Friends of Gledhow Valley Woods website, built and maintained for over 20 years by Adam Bull of Bodytronix."
+  section="about-us"
+>
+  <section class="bg-forest-800 text-white py-6 relative overflow-hidden">
+    <div class="absolute inset-0 bg-gradient-to-br from-forest-900 to-forest-700 opacity-90"></div>
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <nav class="text-forest-200 font-sans text-sm mb-2" aria-label="Breadcrumb">
+        <a href="/" class="hover:text-white">Home</a> / <a href="/about-us" class="hover:text-white">About Us</a> / <span>Former Website</span>
+      </nav>
+      <h1 class="font-heading font-bold text-2xl md:text-3xl text-white">Our Former Website <span class="text-forest-300 font-sans text-sm font-normal">(archived copy)</span></h1>
+      <p class="font-body text-cream-200 text-sm mt-1 max-w-2xl">
+        This is an archived copy of the original FGVW site, kindly built and maintained for over 20 years by Adam Bull of Bodytronix.
+      </p>
+    </div>
+  </section>
+
+  <iframe
+    src="/legacy-site/index.htm"
+    title="Archived Friends of Gledhow Valley Woods website"
+    class="w-full"
+    style="height: calc(100vh - 160px); border: none; display: block;"
+    loading="lazy"
+  ></iframe>
+</Base>
